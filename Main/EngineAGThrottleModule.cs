@@ -9,7 +9,6 @@ namespace KSP___ActionGroupEngines.Main
     {
 
         [KSPField]
-        public bool isNASAEngine = false;
 
         private enum ChangeModes
         {
@@ -75,7 +74,7 @@ namespace KSP___ActionGroupEngines.Main
         private void setLimit(ChangeModes c, float f, KSPActionParam p)
         {
             foreach (PartModule m in this.part.Modules)
-                if (m is ModuleEngines && m.isEnabled && !this.isNASAEngine)
+                if (m is ModuleEngines && m.isEnabled)
                 {
                     ModuleEngines me = (ModuleEngines)m;
                     if (c == ChangeModes.DECREASE)
@@ -85,7 +84,7 @@ namespace KSP___ActionGroupEngines.Main
                     else
                         me.thrustPercentage = f;
                 }
-                else if (m is ModuleEnginesFX && m.isEnabled && this.isNASAEngine) // Squad, y u have separate module for NASA engines? :c
+                else if (m is ModuleEnginesFX && m.isEnabled) // Squad, y u have separate module for NASA engines? :c
                 {
                     ModuleEnginesFX me = (ModuleEnginesFX)m;
                     if (c == ChangeModes.DECREASE)
