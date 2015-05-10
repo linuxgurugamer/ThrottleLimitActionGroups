@@ -8,8 +8,6 @@ namespace KSP___ActionGroupEngines.Main
     class EngineAGThrottleModule : PartModule
     {
 
-        [KSPField]
-
         private enum ChangeModes
         {
             INCREASE = 0,
