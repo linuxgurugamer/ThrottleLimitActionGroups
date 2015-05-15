@@ -1,0 +1,5 @@
+﻿12/05/14, v1.0.1:
+	* Fixed an issue that allowed throttle limits to above above 100 and below 0.
+
+10/05/15, v1.0:
+	* Initial release
