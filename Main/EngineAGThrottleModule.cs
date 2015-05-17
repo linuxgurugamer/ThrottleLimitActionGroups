@@ -72,11 +72,14 @@ namespace KSP___ActionGroupEngines.Main
         private void setLimit(ChangeModes c, float f, KSPActionParam p)
         {
             foreach (PartModule m in this.part.Modules)
-                if (m is ModuleEngines && m.isEnabled)
+                if (m is ModuleEngines)
                 {
                     ModuleEngines me = (ModuleEngines)m;
+                    if (!me.isOperational)
+                        continue;
                     if (c == ChangeModes.DECREASE && me.thrustPercentage == 0f || c == ChangeModes.INCREASE && me.thrustPercentage == 100f) // 1.0.1: Fix for engines going >100 or <0
-                        return;
+                        continue;
+
                     if (c == ChangeModes.DECREASE)
                         me.thrustPercentage -= f;
                     else if (c == ChangeModes.INCREASE)
@@ -87,8 +90,11 @@ namespace KSP___ActionGroupEngines.Main
                 else if (m is ModuleEnginesFX && m.isEnabled) // Squad, y u have separate module for NASA engines? :c
                 {
                     ModuleEnginesFX me = (ModuleEnginesFX)m;
+                    if (!me.isOperational)
+                        continue;
                     if (c == ChangeModes.DECREASE && me.thrustPercentage == 0f || c == ChangeModes.INCREASE && me.thrustPercentage == 100f) // 1.0.1: Fix for engines going >100 or <0
-                        return;
+                        continue;
+
                     if (c == ChangeModes.DECREASE)
                         me.thrustPercentage -= f;
                     else if (c == ChangeModes.INCREASE)
