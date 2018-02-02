@@ -1,8 +1,13 @@
-﻿2.0.0
+﻿2.0.1
+	Thanks to @Kerbas-ad-astra for this:
+		Added "universal" tag-based patcher.
+
+2.0.0
 	Adoption of Throttle Limit Action Groups
 	Renamed to Throttle Limit Extended
 	Recompiled for 1.3.1
 	Added ThrottleLimiterModule
+	Renamed mod to Throttle Limit Extended
 
 18/05/15, v1.0.2:
 	* Added KSP-AVC support

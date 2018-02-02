@@ -91,7 +91,6 @@ namespace KSP___ActionGroupEngines.Main
             if (GameSettings.THROTTLE_FULL.GetKey())
                 SetMinThrust(SetThrustValues.increase);
 
-
         }
     }
 }
