@@ -1,4 +1,13 @@
-﻿2.0.1
+﻿2.0.2
+	Thanks to @eberkain for these:
+		Add Support for RLA
+		Added Puff Engine
+		Missed Huff engine
+		Added support for BDynamics
+		Added HGR and QuizTech support
+		Added USI Support
+
+2.0.1
 	Thanks to @Kerbas-ad-astra for this:
 		Added "universal" tag-based patcher.
 
