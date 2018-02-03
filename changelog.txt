@@ -1,4 +1,7 @@
-﻿2.0.2
+﻿2.0.3
+	Fixed bug where any and all vessels in Physics range would turn on their engines if the throttle keys were pressed. Most noticed on EVA
+
+2.0.2
 	Thanks to @eberkain for these:
 		Add Support for RLA
 		Added Puff Engine

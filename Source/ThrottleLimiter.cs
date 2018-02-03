@@ -73,24 +73,25 @@ namespace KSP___ActionGroupEngines.Main
 
         void Update()
         {
+            if (FlightGlobals.ActiveVessel == this.vessel)
+            {
+                if (GameSettings.THROTTLE_UP.GetKey() ||
+                     (Input.GetKey(KeyCode.LeftAlt) && GameSettings.WHEEL_THROTTLE_UP.GetKey())
+                     )
+                    SetMinThrust(SetThrustValues.increase);
 
-            if (GameSettings.THROTTLE_UP.GetKey() ||
-                 (Input.GetKey(KeyCode.LeftAlt) &&  GameSettings.WHEEL_THROTTLE_UP.GetKey())
-                 )
-                SetMinThrust(SetThrustValues.increase);
 
+                if (GameSettings.THROTTLE_DOWN.GetKey() ||
+                     (Input.GetKey(KeyCode.LeftAlt) && GameSettings.WHEEL_THROTTLE_DOWN.GetKey())
+                    )
+                    SetMinThrust(SetThrustValues.decrease);
 
-            if (GameSettings.THROTTLE_DOWN.GetKey() ||
-                 (Input.GetKey(KeyCode.LeftAlt) && GameSettings.WHEEL_THROTTLE_DOWN.GetKey())
-                )
-                SetMinThrust(SetThrustValues.decrease);
+                if (GameSettings.THROTTLE_CUTOFF.GetKey())
+                    SetMinThrust(SetThrustValues.off);
 
-            if (GameSettings.THROTTLE_CUTOFF.GetKey())
-                SetMinThrust(SetThrustValues.off);
-
-            if (GameSettings.THROTTLE_FULL.GetKey())
-                SetMinThrust(SetThrustValues.increase);
-
+                if (GameSettings.THROTTLE_FULL.GetKey())
+                    SetMinThrust(SetThrustValues.increase);
+            }
         }
     }
 }
