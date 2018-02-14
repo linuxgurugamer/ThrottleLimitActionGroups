@@ -34,8 +34,9 @@ namespace KSP___ActionGroupEngines.Main
         //void CheckThrust()
         void SetMinThrust(SetThrustValues stv)
         {
+#if DEBUG
             Debug.Log("ThrottleLimiterModule.CheckThrust:  part; " + part.partInfo.title + ",   stv: " + stv.ToString());
-
+#endif
             foreach (PartModule m in this.part.Modules)
                 if (m is ModuleEngines)
                 {

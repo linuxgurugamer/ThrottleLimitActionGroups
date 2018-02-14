@@ -1,4 +1,7 @@
-﻿2.0.3
+﻿2.0.3.1
+	Removed some log spam in the Editor
+
+2.0.3
 	Fixed bug where any and all vessels in Physics range would turn on their engines if the throttle keys were pressed. Most noticed on EVA
 
 2.0.2
