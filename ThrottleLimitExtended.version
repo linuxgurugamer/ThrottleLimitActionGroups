@@ -1,11 +1,11 @@
 {
   "NAME": "ThrottleLimitExtended",
-  "URL": "http://ksp-avc.cybutek.net/version.php?id=540",
+  "URL": "https://raw.githubusercontent.com/linuxgurugamer/ThrottleLimitExtended/master/ThrottleLimitExtended.version",
   "VERSION": {
     "MAJOR": 2,
     "MINOR": 0,
-    "PATCH": 0,
-    "BUILD": 0
+    "PATCH": 3,
+    "BUILD": 1
   },
   "KSP_VERSION": {
     "MAJOR": 1,

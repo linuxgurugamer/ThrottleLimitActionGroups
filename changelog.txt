@@ -1,8 +1,28 @@
-﻿2.0.0
+﻿2.0.3.1
+	Removed some log spam in the Editor
+
+2.0.3
+	Fixed bug where any and all vessels in Physics range would turn on their engines if the throttle keys were pressed. Most noticed on EVA
+
+2.0.2
+	Thanks to @eberkain for these:
+		Add Support for RLA
+		Added Puff Engine
+		Missed Huff engine
+		Added support for BDynamics
+		Added HGR and QuizTech support
+		Added USI Support
+
+2.0.1
+	Thanks to @Kerbas-ad-astra for this:
+		Added "universal" tag-based patcher.
+
+2.0.0
 	Adoption of Throttle Limit Action Groups
 	Renamed to Throttle Limit Extended
 	Recompiled for 1.3.1
 	Added ThrottleLimiterModule
+	Renamed mod to Throttle Limit Extended
 
 18/05/15, v1.0.2:
 	* Added KSP-AVC support

@@ -34,8 +34,9 @@ namespace KSP___ActionGroupEngines.Main
         //void CheckThrust()
         void SetMinThrust(SetThrustValues stv)
         {
+#if DEBUG
             Debug.Log("ThrottleLimiterModule.CheckThrust:  part; " + part.partInfo.title + ",   stv: " + stv.ToString());
-
+#endif
             foreach (PartModule m in this.part.Modules)
                 if (m is ModuleEngines)
                 {
@@ -73,25 +74,25 @@ namespace KSP___ActionGroupEngines.Main
 
         void Update()
         {
-
-            if (GameSettings.THROTTLE_UP.GetKey() ||
-                 (Input.GetKey(KeyCode.LeftAlt) &&  GameSettings.WHEEL_THROTTLE_UP.GetKey())
-                 )
-                SetMinThrust(SetThrustValues.increase);
-
-
-            if (GameSettings.THROTTLE_DOWN.GetKey() ||
-                 (Input.GetKey(KeyCode.LeftAlt) && GameSettings.WHEEL_THROTTLE_DOWN.GetKey())
-                )
-                SetMinThrust(SetThrustValues.decrease);
-
-            if (GameSettings.THROTTLE_CUTOFF.GetKey())
-                SetMinThrust(SetThrustValues.off);
-
-            if (GameSettings.THROTTLE_FULL.GetKey())
-                SetMinThrust(SetThrustValues.increase);
+            if (FlightGlobals.ActiveVessel == this.vessel)
+            {
+                if (GameSettings.THROTTLE_UP.GetKey() ||
+                     (Input.GetKey(KeyCode.LeftAlt) && GameSettings.WHEEL_THROTTLE_UP.GetKey())
+                     )
+                    SetMinThrust(SetThrustValues.increase);
 
 
+                if (GameSettings.THROTTLE_DOWN.GetKey() ||
+                     (Input.GetKey(KeyCode.LeftAlt) && GameSettings.WHEEL_THROTTLE_DOWN.GetKey())
+                    )
+                    SetMinThrust(SetThrustValues.decrease);
+
+                if (GameSettings.THROTTLE_CUTOFF.GetKey())
+                    SetMinThrust(SetThrustValues.off);
+
+                if (GameSettings.THROTTLE_FULL.GetKey())
+                    SetMinThrust(SetThrustValues.increase);
+            }
         }
     }
 }
