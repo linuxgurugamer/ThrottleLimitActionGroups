@@ -351,7 +351,6 @@ namespace KSP___ActionGroupEngines
         {
             foreach (var part in FlightGlobals.ActiveVessel.Parts)
             {
-                EngineInfo ei = new EngineInfo();
                 foreach (PartModule m in part.Modules)
                 {
 
