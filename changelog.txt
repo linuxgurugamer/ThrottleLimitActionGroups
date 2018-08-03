@@ -1,4 +1,14 @@
-﻿2.0.4
+﻿2.0.5
+	Added toolbar button and window for controlling the Thrust Limiter
+		Can change the following:
+			All active engines
+			All inactive engines
+			All RCS
+			and can also select specific engine types
+	Remembers window position
+	Added settings window
+
+2.0.4
 	Updated for 1.4.1+
 	Thanks to @Kerbas_ad_astra for the following:
 		Broke out 'universal' patches to have one tag each

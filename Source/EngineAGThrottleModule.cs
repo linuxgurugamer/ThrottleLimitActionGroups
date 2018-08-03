@@ -69,6 +69,21 @@ namespace KSP___ActionGroupEngines.Main
             setLimit(ChangeModes.SET, 0f, p);
         }
 
+        public void Start()
+        {
+            if (!HighLogic.CurrentGame.Parameters.CustomParams<TLE_Settings>().throttleLimits)
+            {
+                Actions["throttle100"].active = false;
+                Actions["throttleP10"].active = false;
+                Actions["throttleP5"].active = false;
+                Actions["throttleP1"].active = false;
+                Actions["throttle50"].active = false;
+                Actions["throttleM10"].active = false;
+                Actions["throttleM5"].active = false;
+                Actions["throttle0"].active = false;
+            }
+        }
+
         private void setLimit(ChangeModes c, float f, KSPActionParam p)
         {
             foreach (PartModule m in this.part.Modules)

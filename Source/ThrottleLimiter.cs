@@ -26,7 +26,7 @@ namespace KSP___ActionGroupEngines.Main
 #if DEBUG
         void Start()
         {
-            Debug.Log("ThrottleLimiterModule:  part; " + part.partInfo.title + ",   minThrottle: " + minThrottle);
+            Log.Info("ThrottleLimiterModule:  part; " + part.partInfo.title + ",   minThrottle: " + minThrottle);
         }
 #endif
 
@@ -35,7 +35,7 @@ namespace KSP___ActionGroupEngines.Main
         void SetMinThrust(SetThrustValues stv)
         {
 #if DEBUG
-            Debug.Log("ThrottleLimiterModule.CheckThrust:  part; " + part.partInfo.title + ",   stv: " + stv.ToString());
+            Log.Info("ThrottleLimiterModule.CheckThrust:  part; " + part.partInfo.title + ",   stv: " + stv.ToString());
 #endif
             foreach (PartModule m in this.part.Modules)
                 if (m is ModuleEngines)
@@ -74,7 +74,7 @@ namespace KSP___ActionGroupEngines.Main
 
         void Update()
         {
-            if (FlightGlobals.ActiveVessel == this.vessel)
+            if (FlightGlobals.ActiveVessel == this.vessel && HighLogic.CurrentGame.Parameters.CustomParams<TLE_Settings>().throttleLimits)
             {
                 if (GameSettings.THROTTLE_UP.GetKey() ||
                      (Input.GetKey(KeyCode.LeftAlt) && GameSettings.WHEEL_THROTTLE_UP.GetKey())
