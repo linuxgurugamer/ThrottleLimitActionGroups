@@ -21,14 +21,33 @@ namespace KSP___ActionGroupEngines
         public override int SectionOrder { get { return 1; } }
         public override bool HasPresets { get { return false; } }
 
-        [GameParameters.CustomParameterUI("Enable Throttle Limits")]
+        [GameParameters.CustomParameterUI("Enable Throttle Limits",
+            toolTip = "Enables the throttle limits on the engines")]
         public bool throttleLimits = true;
 
-        [GameParameters.CustomParameterUI("Enable Global Thrust Limit Window")]
+        [GameParameters.CustomParameterUI("Enable Global Thrust Limit Window",
+            toolTip = "Enables the button for the Global Thrust Limit Window")]
         public bool thrustLimitWindow = true;
 
         [GameParameters.CustomParameterUI("Use alternative skin")]
         public bool useAlternativeSkin = false;
+
+
+
+        [GameParameters.CustomFloatParameterUI("First preset button", minValue = 0, maxValue = 100f, stepCount = 101,
+         toolTip = "Clicking the first preset button will immediately set the throttle limit to this value")]
+        public float presetOne = 25f;
+        [GameParameters.CustomFloatParameterUI("Second preset button", minValue = 0, maxValue = 100f,
+                toolTip = "Clicking the second preset button will immediately set the throttle limit to this value")]
+        public float presetTwo = 50f;
+        [GameParameters.CustomFloatParameterUI("Third preset button", minValue = 0, maxValue = 100f, stepCount = 101,
+                toolTip = "Clicking the third preset button will immediately set the throttle limit to this value")]
+        public float presetThree = 75f;
+        [GameParameters.CustomFloatParameterUI("Fourth preset button", minValue = 0, maxValue = 100f, stepCount = 101,
+                toolTip = "Clicking the fourth preset button will immediately set the throttle limit to this value")]
+        public float presetFour = 100f;
+
+
 
         public override bool Enabled(MemberInfo member, GameParameters parameters)
         {

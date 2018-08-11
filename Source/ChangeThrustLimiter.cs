@@ -35,7 +35,7 @@ namespace KSP___ActionGroupEngines
         const float SEQ_HEIGHT = 200;
         protected Rect windowPos;
 
-        private static GUIStyle yellowLabel = null;     
+        internal static GUIStyle yellowLabel = null;     
 
         public class EngineInfo
         {
@@ -271,6 +271,8 @@ namespace KSP___ActionGroupEngines
         float throttleLimit = 100f;
         float origThrottleLimit = 100f;
 
+        bool apply = false;
+
         private void WindowGUI(int windowID)
         {
             GUILayout.BeginHorizontal();
@@ -319,9 +321,35 @@ namespace KSP___ActionGroupEngines
             GUILayout.Space(20);
 
             GUILayout.BeginHorizontal();
-            if (GUILayout.Button("Set all to 100%"))
+            GUILayout.FlexibleSpace();
+            GUILayout.Label("Instant Presets", yellowLabel);
+            GUILayout.FlexibleSpace();
+            GUILayout.EndHorizontal();
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("Set all to " + HighLogic.CurrentGame.Parameters.CustomParams<TLE_Settings>().presetOne + "% "))
             {
-                throttleLimit = 100f;
+                throttleLimit = HighLogic.CurrentGame.Parameters.CustomParams<TLE_Settings>().presetOne;
+                apply = true;
+            }
+
+            if (GUILayout.Button("Set all to " + HighLogic.CurrentGame.Parameters.CustomParams<TLE_Settings>().presetTwo + "%"))
+            {
+                throttleLimit = HighLogic.CurrentGame.Parameters.CustomParams<TLE_Settings>().presetTwo;
+                apply = true;
+            }
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("Set all to " + HighLogic.CurrentGame.Parameters.CustomParams<TLE_Settings>().presetThree + "%"))
+            {
+                throttleLimit = HighLogic.CurrentGame.Parameters.CustomParams<TLE_Settings>().presetThree;
+                apply = true;
+            }
+
+            if (GUILayout.Button("Set all to " + HighLogic.CurrentGame.Parameters.CustomParams<TLE_Settings>().presetFour + "%"))
+            {
+                throttleLimit = HighLogic.CurrentGame.Parameters.CustomParams<TLE_Settings>().presetFour;
+                apply = true;
             }
             GUILayout.EndHorizontal();
 
@@ -332,6 +360,11 @@ namespace KSP___ActionGroupEngines
                 GUI.enabled = false;
             if (GUILayout.Button("Apply"))
             {
+                apply = true;
+            }
+            if (apply)
+            {
+                apply = false;
                 throttleLimit = (float)Math.Round(throttleLimit, 1);
                 origThrottleLimit = throttleLimit;
                 setThrustLimit(throttleLimit);

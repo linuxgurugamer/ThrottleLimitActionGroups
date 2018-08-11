@@ -1,4 +1,10 @@
-﻿2.0.5
+﻿2.0.6
+	Added tooltips to settings window
+	Added 3 more buttons for the Thrust Limit, now can do set thrust immediately to one of four presets
+	Added 4 sliders to settings window to configure the presets
+	Now using the predefined buttons applies the limit immediately.
+
+2.0.5
 	Added toolbar button and window for controlling the Thrust Limiter
 		Can change the following:
 			All active engines
