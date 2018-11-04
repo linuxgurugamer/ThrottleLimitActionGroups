@@ -22,17 +22,19 @@ namespace KSP___ActionGroupEngines
         public override bool HasPresets { get { return false; } }
 
         [GameParameters.CustomParameterUI("Enable Throttle Limits",
-            toolTip = "Enables the throttle limits on the engines")]
+            toolTip = "Enables the throttle limits on the engines, cannot be used with the Global Thrust Limit Window")]
         public bool throttleLimits = true;
 
         [GameParameters.CustomParameterUI("Enable Global Thrust Limit Window",
-            toolTip = "Enables the button for the Global Thrust Limit Window")]
-        public bool thrustLimitWindow = true;
+            toolTip = "Enables the button for the Global Thrust Limit Window, cannot be used with the Throttle Limits")]
+        public bool thrustLimitWindow = false;
 
         [GameParameters.CustomParameterUI("Use alternative skin")]
         public bool useAlternativeSkin = false;
 
-
+        bool initted = false;
+        bool oldThrustLimit;
+        bool oldThrottleLimit;
 
         [GameParameters.CustomFloatParameterUI("First preset button", minValue = 0, maxValue = 100f, stepCount = 101,
          toolTip = "Clicking the first preset button will immediately set the throttle limit to this value")]
@@ -51,6 +53,26 @@ namespace KSP___ActionGroupEngines
 
         public override bool Enabled(MemberInfo member, GameParameters parameters)
         {
+            if (initted)
+            {
+
+                if (oldThrottleLimit != throttleLimits)
+                {
+                    if (throttleLimits)
+                    {
+                        thrustLimitWindow = false;
+                    }
+                }
+                else if (oldThrustLimit != thrustLimitWindow)
+                {
+                    if (thrustLimitWindow)
+                        throttleLimits = false;
+                }
+            }
+            initted = true;
+            oldThrustLimit = thrustLimitWindow;
+            oldThrottleLimit = throttleLimits;
+
             return true; //otherwise return true
         }
 

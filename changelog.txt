@@ -1,4 +1,10 @@
-﻿2.0.6
+﻿2.0.7.1
+	Version bump for 1.5 rebuild
+
+2.0.7
+	Added code to settings window to ensure that only one mode can be active at a time
+
+2.0.6
 	Added tooltips to settings window
 	Added 3 more buttons for the Thrust Limit, now can do set thrust immediately to one of four presets
 	Added 4 sliders to settings window to configure the presets
