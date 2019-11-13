@@ -1,4 +1,11 @@
-﻿2.0.7.1
+﻿ChangeLog
+
+2.0.8
+	Added InstallChecker
+	Updated AssemblyVersion.tt
+	Rebuild for 1.8
+
+2.0.7.1
 	Version bump for 1.5 rebuild
 
 2.0.7
