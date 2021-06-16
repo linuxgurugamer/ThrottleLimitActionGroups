@@ -1,5 +1,9 @@
 ﻿ChangeLog
 
+2.0.9
+	Renamed DLL for better CKAN support
+	Added code for better support for Mechjeb and GravityTurn
+	
 2.0.8
 	Added InstallChecker
 	Updated AssemblyVersion.tt
